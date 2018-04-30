@@ -1,3 +1,19 @@
-<div class="jumbotron">
-<h1>Bus Report</h1>
+<div class="container">
+<uib-accordion>
+<div accordion-group heading="{{busRegion.organisation}}-{{busRegion.date}}" ng-repeat="busRegion in busReportData" panel-class="panel-default inverseStyle" is-open="true">
+	<table class="table table-striped">
+		<tr>
+		<th>Bus ID</th>
+		<th>Route Variant</th>
+		<th>Status</th>
+		</tr>
+
+		<tr ng-repeat = "bus in busRegion.busData">
+			<td>{{ bus.busId }}</td>
+			<td>{{ bus.routeVariant }}</td>
+			<td>{{ bus.deviationFromTimetable }}</td>
+		</tr>
+	</table>
+</div>
+</uib-accordion>
 </div>

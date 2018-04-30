@@ -2,17 +2,15 @@
     'use strict';
 
     angular.module('busReportApp')
-        .controller('MainCtrl', ['busReportService', MainCtrl]);
+        .controller('MainCtrl', ['$scope','busReportResource', MainCtrl]);
 
-    function MainCtrl(busReportService) {
+    function MainCtrl($scope, busReportResource) {
 
         init();
 
         function init() {
-            busReportService.retrievebusReport().then(function(data){
-                $scope.busReportData = data;
-            } , function(errors) {
-                console.log("Fetch failed");
+            busReportResource.get({}, function(response) {
+                $scope.busReportData=response.data;
             });
         }
     }

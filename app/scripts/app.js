@@ -28,4 +28,10 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+    }).config(['$provide', function($provide) {
+      $provide.decorator('uibAccordionGroupDirective', ['$delegate', function ($delegate) {
+        var directive = $delegate[0];
+        directive.templateUrl = "views/uib-accordion-group-template.html";
+        return $delegate;
+      }]);
+    }])
