@@ -1,19 +1,26 @@
 <div class="container">
-<uib-accordion>
-<div accordion-group heading="{{busRegion.organisation}}-{{busRegion.date}}" ng-repeat="busRegion in busReportData" panel-class="panel-default inverseStyle" is-open="true">
-	<table class="table table-striped">
-		<tr>
-		<th>Bus ID</th>
-		<th>Route Variant</th>
-		<th>Status</th>
-		</tr>
+	<ul class="border-top" style="list-style-type:none">
+		<li ng-repeat="busRegion in busReportData">
+			<list-toggle>
+				<div class="toggleDropdown waves-effect waves-light">
+					<a>{{busRegion.organisation}}-{{busRegion.date}}</a>
+				</div>
+				<div class="dropdownDiv clearfix">
+					<table class="table table-striped">
+						<tr>
+							<th>Bus ID</th>
+							<th>Route Variant</th>
+							<th>Status</th>
+						</tr>
 
-		<tr ng-repeat = "bus in busRegion.busData">
-			<td>{{ bus.busId }}</td>
-			<td>{{ bus.routeVariant }}</td>
-			<td>{{ bus.deviationFromTimetable }}</td>
-		</tr>
-	</table>
-</div>
-</uib-accordion>
+						<tr ng-repeat = "bus in busRegion.busData">
+							<td>{{ bus.busId }}</td>
+							<td>{{ bus.routeVariant }}</td>
+							<td>{{ bus.deviationFromTimetable }}</td>
+						</tr>
+					</table>
+				</div>
+			</list-toggle>
+		</li>
+	</ul>
 </div>
